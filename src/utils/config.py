@@ -20,7 +20,8 @@ For example:
 """
 
 import os
-from ConfigParser import ConfigParser
+from ConfigParser import ConfigParser, NoSectionError, NoOptionError
+from src.utils.utils_exception import ConfigFileException, ConfigError
 
 
 # todo(396214358@qq.com): log when log module finished.
@@ -35,7 +36,10 @@ class Config(ConfigParser):
     def __init__(self, filename='config.ini'):
         ConfigParser.__init__(self)
         self.path = CONFIG_PATH + filename
-        self.read(self.path)
+        if os.path.exists(self.path):
+            self.read(self.path)
+        else:
+            raise ConfigFileException('Config file not exists or not available.Please check {}.'.format(self.path))
 
 
 class DefaultConfig(Config):
@@ -75,34 +79,41 @@ class DefaultConfig(Config):
     @property
     def db_connect(self):
         db_driver = self.get('db', 'driver').lower()
-        if db_driver == 'mysql':
-            return self._mysql_connect()
-        elif db_driver == 'oracle':
-            return self._oracle_connect()
+        try:
+            if db_driver == 'mysql':
+                return self._mysql_connect()
+            elif db_driver == 'oracle':
+                return self._oracle_connect()
+        except NoSectionError and NoOptionError:
+            raise ConfigError('[db] section is required. And [db] section must have these options:'
+                              '"driver", "user", "pwd", "host", "port", "db_name"')
 
     @property
     def base_path(self):
-        return self.get('path', 'base')
+        try:
+            return self.get('path', 'base')
+        except NoSectionError and NoOptionError:
+            raise ConfigError('[path] section and "base" option is required.')
 
     @property
     def log_path(self):
         try:
             return self.get('path', 'log')
-        except:
+        except NoSectionError and NoOptionError:
             return self.base_path + '\\log\\'
 
     @property
     def report_path(self):
         try:
             return self.get('path', 'report')
-        except:
+        except NoSectionError and NoOptionError:
             return self.base_path + '\\report\\'
 
     @property
     def data_path(self):
         try:
             return self.get('path', 'data')
-        except:
+        except NoSectionError and NoOptionError:
             return self.base_path + '\\data\\'
 
     @property

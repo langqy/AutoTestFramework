@@ -13,6 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 # todo:log
+# todo(396214358@qq.com): 完善Browser Page类，添加注释
 
 DRIVER_PATH = DefaultConfig().driver_path
 ChromeDriver = DRIVER_PATH + '\\chromedriver.exe'

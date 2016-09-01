@@ -51,9 +51,9 @@ ReadXML -- read xml and return api, and api type.
 
 """
 from xml.etree.ElementTree import ElementTree
-from config import DefaultConfig
-from logger import log
-from utils_exception import DataFileNotAvailableException, DataError
+from src.utils.config import DefaultConfig
+from src.utils.logger import log
+from src.utils.utils_exception import DataFileNotAvailableException, DataError
 
 # todo:log
 

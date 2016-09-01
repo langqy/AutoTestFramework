@@ -17,6 +17,16 @@ class FileException(Error):
     pass
 
 
+class ConfigFileException(FileException):
+    """Thrown when config file not exists."""
+    pass
+
+
+class ConfigError(Error):
+    """Thrown when basic config error, such as no [path] section or no 'base' option."""
+    pass
+
+
 class DataFileNotAvailableException(FileException):
     """Thrown when data file not available."""
     pass

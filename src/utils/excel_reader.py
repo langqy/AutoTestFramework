@@ -62,7 +62,7 @@ ReadXls -- read xls and return a list (zipped first line and other rows)
 
 """
 from xlrd import open_workbook
-from config import DefaultConfig
+from src.utils.config import DefaultConfig
 from src.utils.utils_exception import DataFileNotAvailableException, DataError, SheetTypeError, SheetError
 
 # todo:log
@@ -70,7 +70,7 @@ from src.utils.utils_exception import DataFileNotAvailableException, DataError, 
 
 class ExcelReader(object):
     def __init__(self, book, sheet=0):
-        """
+        """Read workbook
 
         :param book: work_book name.Not path.
         :param sheet: index of sheet or sheet name.
