@@ -5,10 +5,10 @@ import time
 from selenium import webdriver
 from config import DefaultConfig
 from selenium.common.exceptions import WebDriverException
-from UtilsError import (
+from utils_exception import (
     UnSupportBrowserTypeException,
     ParameterError)
-from tools import save_time, save_date
+from support import save_time, save_date
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -21,7 +21,7 @@ IEDriver = DRIVER_PATH + '\\IEDriverServer.exe'
 TYPES = {'firefox': webdriver.Firefox, 'chrome': webdriver.Chrome, 'ie': webdriver.Ie}
 
 
-class Browser:
+class Browser(object):
 
     def __init__(self, url, browser_type='firefox'):
         self.type = browser_type

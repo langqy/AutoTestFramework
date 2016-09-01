@@ -19,15 +19,16 @@ For example:
 
 """
 
-
-from ConfigParser import ConfigParser
 import os
+from ConfigParser import ConfigParser
 
-# todo:log
+
+# todo(396214358@qq.com): log when log module finished.
+
 
 # 获取当前文件绝对路径，从而获得config层路径
 UTILS_PATH = os.path.split(os.path.realpath(__file__))[0]
-CONFIG_PATH = UTILS_PATH + '\\..\\..\\config\\'  # config layer
+CONFIG_PATH = UTILS_PATH + '\\..\\..\\config\\'  # config层
 
 
 class Config(ConfigParser):

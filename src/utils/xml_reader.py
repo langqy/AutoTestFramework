@@ -53,12 +53,12 @@ ReadXML -- read xml and return api, and api type.
 from xml.etree.ElementTree import ElementTree
 from config import DefaultConfig
 from logger import log
-from UtilsError import DataFileNotAvailableException, DataError
+from utils_exception import DataFileNotAvailableException, DataError
 
 # todo:log
 
 
-class ReadXML:
+class XMLReader(object):
 
     def __init__(self, xml):
         self.xml = '{0}\\{1}'.format(DefaultConfig().data_path, xml)
@@ -105,7 +105,7 @@ class ReadXML:
 
 
 if __name__ == '__main__':
-    x1 = ReadXML('zhigou.xml')
+    x1 = XMLReader('zhigou.xml')
     print x1.get_url('CheckCode')
     print x1.get_type('CheckCode')
     print x1.get_text('CheckCode')

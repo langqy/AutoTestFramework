@@ -63,12 +63,12 @@ ReadXls -- read xls and return a list (zipped first line and other rows)
 """
 from xlrd import open_workbook
 from config import DefaultConfig
-from src.utils.UtilsError import DataFileNotAvailableException, DataError, SheetTypeError, SheetError
+from src.utils.utils_exception import DataFileNotAvailableException, DataError, SheetTypeError, SheetError
 
 # todo:log
 
 
-class ReadXls:
+class ExcelReader(object):
     def __init__(self, book, sheet=0):
         """
 
@@ -136,7 +136,7 @@ class ReadXls:
 
 
 if __name__ == '__main__':
-    phone = ReadXls('phone.xlsx', 0)
+    phone = ExcelReader('phone.xlsx', 0)
     print phone.title
     print phone.data
     print phone.nums
