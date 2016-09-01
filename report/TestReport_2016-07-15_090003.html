@@ -1,0 +1,4049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>直购接口测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    /* width: 500px;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 99%;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #74A474; }
+.failClass  { background-color: #FDD283; }
+.errorClass { background-color: #FF6600; }
+.passCase   { color: #6c6; }
+.failCase   { color: #FF6600; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+#div_base {
+            position:absolute;
+            top:0%;
+            left:5%;
+            right:5%;
+            width: auto;
+            height: auto;
+            margin: -15px 0 0 0;
+}
+</style>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div id="div_base">
+
+<div class='page-header'>
+<h1>直购接口测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2016-07-15 09:00:03</p>
+<p class='attribute'><strong>运行时长:</strong> 0:00:11.996000</p>
+<p class='attribute'><strong>状态:</strong> 通过 18</p>
+
+</div>
+<p class='description'>Test_Report</p>
+
+
+
+<div class="btn-group btn-group-sm">
+<button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+</div>
+<p></p>
+<table id='result_table' class="table table-bordered">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试套件/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>查看</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestCollectionAdd</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">详情</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        通过</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Collection__Add
+User&lt;mobile=15181562480, username=15181562480, password=15181562480&gt;
+用例编号：1
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 1946, "sign": "34f8e1f31d14b3bee4516cd92ea1e41c"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"p_product_id": 1, "p_merchantid": "", "p_userid": 1946, "sign": "20015d4e30595775cd6629620c907f80"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：3
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": "", "sign": "2d5fd140b0f41be19b994f3ae9bcee2f"}
+返回值：
+{
+    "errorCode": "P_Collection__Add|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Collection__Add|No_Userid_Found
+
+用例编号：4
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": null, "sign": "795dc5e623971203e116d2b42c5eaf38"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：5
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": "xxxxxx", "sign": "4b2e1985a3043d29103fd99e80d7b5b0"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：6
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 111111, "sign": "887393abeebdc5517f0bf55ff72db535"}
+返回值：
+{
+    "errorCode": "P_Collection__Add|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Collection__Add|No_Userid_Found
+
+用例编号：7
+传入参数：{"p_product_id": "", "p_merchantid": "", "p_userid": 1946, "sign": "bceeeac8201fc7d8985d5511ffee550b"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：8
+传入参数：{"p_product_id": "", "p_merchantid": null, "p_userid": 1946, "sign": "3c5168b88de1ddfa67b7468117543955"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：9
+传入参数：{"p_product_id": "", "p_merchantid": "xxxxxx", "p_userid": 1946, "sign": "0c76a7ee812e6e7e39fff9870b029836"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：10
+传入参数：{"p_product_id": "", "p_merchantid": 111111, "p_userid": 1946, "sign": "99f35358c5bd776d5261d92fe1e63414"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：11
+传入参数：{"p_product_id": null, "p_merchantid": "", "p_userid": 1946, "sign": "f8a57d3064118f7f36c02f34b4c1d7f3"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：12
+传入参数：{"p_product_id": "xxxxxx", "p_merchantid": "", "p_userid": 1946, "sign": "3be196996a48a1d1e11030dff8186254"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：13
+传入参数：{"p_product_id": 111111, "p_merchantid": "", "p_userid": 1946, "sign": "118bfa38899a43eb2ec6e31a38745d72"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：14
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 1946, "sign": "34f8e1f31d14b3bee4516cd92ea1e41c"}
+返回值：
+{
+    "errorCode": "P_Collection__Add|Duplicate_ID", 
+    "errorMessage": "不允许重复添加！"
+}
+期望代码：P_Collection__Add|Duplicate_ID
+
+用例编号：15
+传入参数：{"p_product_id": 1, "p_merchantid": "", "p_userid": 1946, "sign": "20015d4e30595775cd6629620c907f80"}
+返回值：
+{
+    "errorCode": "P_Collection__Add|Duplicate_ID", 
+    "errorMessage": "不允许重复添加！"
+}
+期望代码：P_Collection__Add|Duplicate_ID
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestCollectionDelete</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">详情</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        通过</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Collection__Delete
+用例编号：1
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 1936, "sign": "d862b1c379f8176bf00ae241b59ecdd7"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"p_product_id": 1, "p_merchantid": "", "p_userid": 1936, "sign": "78df3e0d780b1cd8ad8efb2697583cbe"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：3
+传入参数：{"p_product_id": "", "p_merchantid": "", "p_userid": "", "sign": "516c484ea0a4f8bc183a222e481294db"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：4
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": null, "sign": "795dc5e623971203e116d2b42c5eaf38"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：5
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": "xxxxxx", "sign": "4b2e1985a3043d29103fd99e80d7b5b0"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：6
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 111111, "sign": "887393abeebdc5517f0bf55ff72db535"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：7
+传入参数：{"p_product_id": "", "p_merchantid": "", "p_userid": 1936, "sign": "f06748e2cca933ac9824c58c43a2434c"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：8
+传入参数：{"p_product_id": 2, "p_merchantid": 29, "p_userid": 1936, "sign": "9da8cf6a2259fb95758c43b096c91549"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：9
+传入参数：{"p_product_id": "", "p_merchantid": null, "p_userid": 1936, "sign": "96c6f40d84c6ba8adef3016104b6e5cb"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：10
+传入参数：{"p_product_id": "", "p_merchantid": "xxxxx", "p_userid": 1936, "sign": "7e02ad19917a5e1fc6d4767c6768a47a"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：11
+传入参数：{"p_product_id": "", "p_merchantid": 1111111, "p_userid": 1936, "sign": "73371e1aef7a8d2a01d794ed6bcd5fa7"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：12
+传入参数：{"p_product_id": null, "p_merchantid": "", "p_userid": 1936, "sign": "23c2dd711197a5185d52747da23cb640"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：13
+传入参数：{"p_product_id": "xxxxxx", "p_merchantid": "", "p_userid": 1936, "sign": "d96f033e9ab94c723f52cd3cb3a3b463"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：14
+传入参数：{"p_product_id": 111111, "p_merchantid": "", "p_userid": 1936, "sign": "fe7d021459389d20b498707269d4dae5"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：15
+传入参数：{"p_product_id": "", "p_merchantid": 30, "p_userid": 1936, "sign": "d862b1c379f8176bf00ae241b59ecdd7"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：16
+传入参数：{"p_product_id": 1, "p_merchantid": "", "p_userid": 1936, "sign": "78df3e0d780b1cd8ad8efb2697583cbe"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestCollectionGet</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">详情</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        通过</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Collection__Get
+用例编号：1
+传入参数：{"p_n": 10, "sign": "e8619ceb3fd1da6a0c663410f3157dff", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [
+        {
+            "collection_id": 179, 
+            "picture1": "/images/items/lemon2.jpg", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_status": 2, 
+            "rn": 1
+        }, 
+        {
+            "collection_id": 180, 
+            "picture1": "/images/lemon.jpg", 
+            "product_id": 2, 
+            "product_name": "苹果", 
+            "product_status": 2, 
+            "rn": 2
+        }
+    ], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：2
+传入参数：{"p_n": 10, "sign": "99db41dc6ffdf66b7e20b7bbed5251eb", "p_page": 1, "p_userid": 1937, "p_collection_type": 1}
+返回值：
+{
+    "collection": [
+        {
+            "collection_id": 177, 
+            "merchantid": 30, 
+            "rn": 1, 
+            "shoplogo": "shop/8cb9278f-3054-4084-b9d9-4293916fa037.jpg", 
+            "shopname": "徐玲凤测试商铺1", 
+            "shopstatus": 2
+        }, 
+        {
+            "collection_id": 178, 
+            "merchantid": 29, 
+            "rn": 2, 
+            "shoplogo": null, 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "shopstatus": 2
+        }
+    ], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：3
+传入参数：{"p_n": 10, "sign": "e6f56ad6188d62380354f7a49a8eee1e", "p_page": 1, "p_userid": "", "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "P_Collection__Get|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Collection__Get|No_Userid_Found
+
+用例编号：4
+传入参数：{"p_n": 10, "sign": "23406a81f4f932ef17a0f6efbfb23056", "p_page": 1, "p_userid": null, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：5
+传入参数：{"p_n": 10, "sign": "c153b67a3a8567a35d89f78217c91e19", "p_page": 1, "p_userid": "xxxxxx", "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：6
+传入参数：{"p_n": 10, "sign": "1c38daceb32609056e643f6607df6eaa", "p_page": 1, "p_userid": 111111, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "P_Collection__Get|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Collection__Get|No_Userid_Found
+
+用例编号：7
+传入参数：{"p_n": 10, "sign": "8a68c1025a0b346fcd0ab02321c88a5e", "p_page": 1, "p_userid": 1937, "p_collection_type": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：8
+传入参数：{"p_n": 10, "sign": "07b3942cd2837fded3f2cfb3c64bc677", "p_page": 1, "p_userid": 1937, "p_collection_type": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：9
+传入参数：{"p_n": 10, "sign": "3889ae19ab53ee6ae16e92d54ed911c1", "p_page": 1, "p_userid": 1937, "p_collection_type": "xxxxxx"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：10
+传入参数：{"p_n": 10, "sign": "4878710e66e7020b572dd3f5eb0c2b59", "p_page": 1, "p_userid": 1937, "p_collection_type": 11111}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：11
+传入参数：{"p_n": 10, "sign": "86c7c3ec03c90137c3fa43c0155401fd", "p_page": 1, "p_userid": 1937, "p_collection_type": -1}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：12
+传入参数：{"p_n": 10, "sign": "20f8013a9f7173e9e71d95c4996aed61", "p_page": "", "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：13
+传入参数：{"p_n": 10, "sign": "66c46f8a15d3c9dfee70cc1690338c74", "p_page": null, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：14
+传入参数：{"p_n": 10, "sign": "272dd58e754ad70e0f9cf0bb348b7990", "p_page": "xxxxx", "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：15
+传入参数：{"p_n": 10, "sign": "c8087e5a87fc4dbb368c211c1a842820", "p_page": 1111111, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：16
+传入参数：{"p_n": 10, "sign": "506d45d4bc51588f9d54b5067efda8fe", "p_page": -1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：17
+传入参数：{"p_n": 10, "sign": "fc3b74c0a2d9dfcef1db906b95f90652", "p_page": 0, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：18
+传入参数：{"p_n": "", "sign": "0393b4cb9f765279c06b763a09c8e959", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：19
+传入参数：{"p_n": null, "sign": "15ee81c47e690509e1c6a538286115cc", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：20
+传入参数：{"p_n": "xxxxxx", "sign": "1a340df1ed1b8ca2fab96ccb6ccbbf42", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：21
+传入参数：{"p_n": 111111, "sign": "8a52c428905f11b207a83740e70f474b", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [
+        {
+            "collection_id": 179, 
+            "picture1": "/images/items/lemon2.jpg", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_status": 2, 
+            "rn": 1
+        }, 
+        {
+            "collection_id": 180, 
+            "picture1": "/images/lemon.jpg", 
+            "product_id": 2, 
+            "product_name": "苹果", 
+            "product_status": 2, 
+            "rn": 2
+        }
+    ], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：22
+传入参数：{"p_n": -1, "sign": "1d5e7c432c27ca9e7086d0fe1b1d0dc2", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+用例编号：23
+传入参数：{"p_n": 0, "sign": "713f1886bd442a442675b1ff40e74e41", "p_page": 1, "p_userid": 1937, "p_collection_type": 0}
+返回值：
+{
+    "collection": [], 
+    "p_count": 2
+}
+期望代码：collection
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalApplypurchaser</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">详情</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        通过</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Applypurchaser
+User&lt;mobile=15163246962, username=15163246962, password=15163246962&gt;
+用例编号：1
+传入参数：{"p_userid": 1947, "sign": "3df5264a32a371fabcdfea2b61910158"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxxx", "sign": "0f67a78f92a498013b6f49b52a18ccf2"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 111111, "sign": "e2f32b24e2d30a2f4f917c3769eb0fe2"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalGethistorybill</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">详情</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        通过</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Gethistorybill
+用例编号：1
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "f95eaae188d22eca94ef28088d2ebdb1"}
+返回值：
+{
+    "gethistorybill": [
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "苹果", 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "status": 2, 
+            "total_fee": -150
+        }, 
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "柠檬", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 3, 
+            "total_fee": -500
+        }
+    ]
+}
+期望代码：gethistorybill
+
+用例编号：2
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-09", "p_userid": "", "sign": "6032a6598ee84d123293d2b2ac55e8e5"}
+返回值：
+{
+    "errorCode": "P_Personal__Gethistorybill|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Gethistorybill|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-09", "p_userid": null, "sign": "8e8519eb6c35f6e66360051af56d8503"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-09", "p_userid": "xxxxx", "sign": "a66f29283881baa8ab96c20e7f8476fc"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-09", "p_userid": 111111, "sign": "cda8d2e90b1c56d93f16f1cf4edc2a60"}
+返回值：
+{
+    "errorCode": "P_Personal__Gethistorybill|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Gethistorybill|No_Userid_Found
+
+用例编号：6
+传入参数：{"p_begin_date": "", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "d795280711f9ca5ed5c359f955b7a837"}
+返回值：
+{
+    "gethistorybill": []
+}
+期望代码：gethistorybill
+
+用例编号：7
+传入参数：{"p_begin_date": null, "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "9a4483450e1c7193d3f5e7a3facdd2a1"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"p_begin_date": "xxxxxx", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "e868afe5cdad1f75851e1b2bfb903194"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：9
+传入参数：{"p_begin_date": "2016-0101", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "864f86a5862cf35a83e46ac41b73a47c"}
+返回值：
+{
+    "gethistorybill": [
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "苹果", 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "status": 2, 
+            "total_fee": -150
+        }, 
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "柠檬", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 3, 
+            "total_fee": -500
+        }
+    ]
+}
+期望代码：gethistorybill
+
+用例编号：10
+传入参数：{"p_begin_date": "16-01-01", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "f3117df8719b2e25642404f08bbedc23"}
+返回值：
+{
+    "gethistorybill": [
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "苹果", 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "status": 2, 
+            "total_fee": -150
+        }, 
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "柠檬", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 3, 
+            "total_fee": -500
+        }
+    ]
+}
+期望代码：gethistorybill
+
+用例编号：11
+传入参数：{"p_begin_date": "2016-13-01", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "7400a14fdb33814e3a203f2dd1c2b205"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：12
+传入参数：{"p_begin_date": "2016-01-88", "p_end_date": "2016-09-09", "p_userid": 1678, "sign": "e4c90b3516a48a2d5e55cb5994e9f074"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：13
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "", "p_userid": 1678, "sign": "1e5e819c10113c94f29eb5f3af1c08c5"}
+返回值：
+{
+    "gethistorybill": []
+}
+期望代码：gethistorybill
+
+用例编号：14
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": null, "p_userid": 1678, "sign": "a011b87383408126dff569f5eba293f0"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：15
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "xxxxx", "p_userid": 1678, "sign": "05f1bdee9ae8edf039182d58ad767fc1"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：16
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-0909", "p_userid": 1678, "sign": "7dabe12957de6775db8f59d8466481c7"}
+返回值：
+{
+    "gethistorybill": [
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "苹果", 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "status": 2, 
+            "total_fee": -150
+        }, 
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "柠檬", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 3, 
+            "total_fee": -500
+        }
+    ]
+}
+期望代码：gethistorybill
+
+用例编号：17
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "16-09-09", "p_userid": 1678, "sign": "0686065915a9a3917bdda7af331bfc28"}
+返回值：
+{
+    "gethistorybill": []
+}
+期望代码：gethistorybill
+
+用例编号：18
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-13-09", "p_userid": 1678, "sign": "005d08eef8ac69efa25195a84055b4ac"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：19
+传入参数：{"p_begin_date": "2016-01-01", "p_end_date": "2016-09-88", "p_userid": 1678, "sign": "e53b51a30ae6cf7db8f5b9d05c15100d"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：20
+传入参数：{"p_begin_date": "2016-09-09", "p_end_date": "2016-01-01", "p_userid": 1678, "sign": "a40010ee3271fce8a4d8bffa0f22b28c"}
+返回值：
+{
+    "gethistorybill": []
+}
+期望代码：gethistorybill
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalGetmonthbill</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">详情</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        通过</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Getmonthbill
+用例编号：1
+传入参数：{"p_userid": 1678, "sign": "369e07535ddb8a8cc8f527b3624cbc1d"}
+返回值：
+{
+    "getmonthbill": [
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "苹果", 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "status": 2, 
+            "total_fee": -150
+        }, 
+        {
+            "create_time": "2016-07-11 16:01:54", 
+            "product_name": "柠檬", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 3, 
+            "total_fee": -500
+        }
+    ]
+}
+期望代码：getmonthbill
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "P_Personal__Getmonthbill|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Getmonthbill|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxx", "sign": "4892656be85822edde7537df5f4a9877"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 111111, "sign": "e2f32b24e2d30a2f4f917c3769eb0fe2"}
+返回值：
+{
+    "errorCode": "P_Personal__Getmonthbill|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Getmonthbill|No_Userid_Found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalGetpurchaser</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">详情</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        通过</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Getpurchaser
+用例编号：1
+传入参数：{"p_userid": 1938, "sign": "5248a4cf252ddd79c98dc6a2e665000c"}
+返回值：
+{
+    "p_ispurchaser": 1
+}
+期望代码：p_ispurchaser
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxxx", "sign": "0f67a78f92a498013b6f49b52a18ccf2"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 111111, "sign": "e2f32b24e2d30a2f4f917c3769eb0fe2"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalInformation</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">详情</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        通过</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Information
+用例编号：1
+传入参数：{"p_userid": 1939, "sign": "be999d215a5acf84adb85d6fc33af118"}
+返回值：
+{
+    "p_ispurchaser": 1, 
+    "p_nickname": "13659975872", 
+    "p_username": "13659975872"
+}
+期望代码：p_username
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "P_Personal__Information|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Information|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxx", "sign": "aa66d0114ee528c4197a3ab367b85982"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 11111, "sign": "d81caed331504033e9b801a2b1989508"}
+返回值：
+{
+    "errorCode": "P_Personal__Information|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personal__Information|No_Userid_Found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalIsrealname</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">详情</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        通过</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Isrealname
+用例编号：1
+传入参数：{"p_userid": 1940, "sign": "da47767b61a5299e9f40939bc5418b7f"}
+返回值：
+{
+    "p_real_status": 2
+}
+期望代码：p_real_status
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxxx", "sign": "0f67a78f92a498013b6f49b52a18ccf2"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 111111, "sign": "e2f32b24e2d30a2f4f917c3769eb0fe2"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalUpdatenikename</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">详情</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        通过</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personal__Updatenikename
+用例编号：1
+传入参数：{"sign": "67e2b528a3711cc9d81a3b4803a1d7c7", "p_userid": 1941, "p_nickname": "nickname194328"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"sign": "dfa296feac43a595fad1d06fbd63a844", "p_userid": "", "p_nickname": "nickname513329"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：3
+传入参数：{"sign": "b182b6bf01b0cd595bc45a9f6f807eee", "p_userid": null, "p_nickname": "nickname867189"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"sign": "52506c8e9ea63e4ec1be4dce70ee6c97", "p_userid": "xxxxxx", "p_nickname": "nickname912775"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"sign": "41954503be0f72f19824cd30ed28d954", "p_userid": 111111, "p_nickname": "nickname622068"}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：6
+传入参数：{"sign": "5f5f7a73745a1d1a604a49af58afb07e", "p_userid": 1941, "p_nickname": ""}
+返回值：
+{}
+期望代码：{}
+
+用例编号：7
+传入参数：{"sign": "3ce8c9a26d5d91925e51ba93d5ebf574", "p_userid": 1941, "p_nickname": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"sign": "fa1e9d90736e95f6403953c6f7cc3ab5", "p_userid": 1941, "p_nickname": "xxxxxxxxxxxxxxxxxxxxx"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：9
+传入参数：{"sign": "d9296498663b92141fc640e00f8d92bb", "p_userid": 1941, "p_nickname": "xxxxxxxxxxxxxxxxxxxx"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：10
+传入参数：{"sign": "262d37910e9f7e6966d7924e58e488c9", "p_userid": 1941, "p_nickname": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b571"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：11
+传入参数：{"sign": "7386b23250bab08d709184e0c0aa402b", "p_userid": 1941, "p_nickname": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57"}
+返回值：
+{}
+期望代码：{}
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalcenterLogistics</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',1)">详情</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+        通过</a>
+
+    <div id='div_pt11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personalcenter__Logistics
+用例编号：1
+传入参数：{"sign": "e75505b131baf85b895ba662579c72de", "p_userid": 1678, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "logisticsdetail": []
+}
+期望代码：logisticsdetail
+
+用例编号：2
+传入参数：{"sign": "93aec9dc46d8cf1059c9dc7caec3d4ef", "p_userid": "", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Logistics|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Logistics|No_Userid_Found
+
+用例编号：3
+传入参数：{"sign": "de5f1a23f512c3234086aa39f40ad005", "p_userid": null, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"sign": "d494b4fc65c9901f086d35136d5d8ad0", "p_userid": "xxxxx", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"sign": "b27971941113a76e8ed12bdd65680033", "p_userid": 11111, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Logistics|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Logistics|No_Userid_Found
+
+用例编号：6
+传入参数：{"sign": "58be3cbb7f59fb6e12d8747baec5b01a", "p_userid": 1678, "p_order_id": ""}
+返回值：
+{
+    "logisticsdetail": []
+}
+期望代码：logisticsdetail
+
+用例编号：7
+传入参数：{"sign": "369e07535ddb8a8cc8f527b3624cbc1d", "p_userid": 1678, "p_order_id": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"sign": "166bdaadff6a54db161c8a2554dbd63f", "p_userid": 1678, "p_order_id": "xxxxxx"}
+返回值：
+{
+    "logisticsdetail": []
+}
+期望代码：logisticsdetail
+
+用例编号：9
+传入参数：{"sign": "cd0c59961f610e6dba1e731bd74fa882", "p_userid": 1678, "p_order_id": "111111"}
+返回值：
+{
+    "logisticsdetail": []
+}
+期望代码：logisticsdetail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalcenterGetorder</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">详情</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        通过</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personalcenter__Getorder
+用例编号：1
+传入参数：{"sign": "e75505b131baf85b895ba662579c72de", "p_userid": 1678, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "orderdetail": [
+        {
+            "create_time": "2016-07-11 16:01:16", 
+            "detail_address": "收货地址M5gI", 
+            "locationname": "天津天津市和平区", 
+            "merchantid": 30, 
+            "order_id": "2016071116011614837", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_status": 2, 
+            "receive_name": "1678收货人nmvj", 
+            "shopname": "徐玲凤测试商铺1", 
+            "status": 8, 
+            "sumprice": 100, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤"
+        }
+    ]
+}
+期望代码：orderdetail
+
+用例编号：2
+传入参数：{"sign": "93aec9dc46d8cf1059c9dc7caec3d4ef", "p_userid": "", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "orderdetail": []
+}
+期望代码：orderdetail
+
+用例编号：3
+传入参数：{"sign": "de5f1a23f512c3234086aa39f40ad005", "p_userid": null, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"sign": "d494b4fc65c9901f086d35136d5d8ad0", "p_userid": "xxxxx", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"sign": "b27971941113a76e8ed12bdd65680033", "p_userid": 11111, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "orderdetail": []
+}
+期望代码：orderdetail
+
+用例编号：6
+传入参数：{"sign": "58be3cbb7f59fb6e12d8747baec5b01a", "p_userid": 1678, "p_order_id": ""}
+返回值：
+{
+    "orderdetail": []
+}
+期望代码：orderdetail
+
+用例编号：7
+传入参数：{"sign": "369e07535ddb8a8cc8f527b3624cbc1d", "p_userid": 1678, "p_order_id": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"sign": "166bdaadff6a54db161c8a2554dbd63f", "p_userid": 1678, "p_order_id": "xxxxxx"}
+返回值：
+{
+    "orderdetail": []
+}
+期望代码：orderdetail
+
+用例编号：9
+传入参数：{"sign": "cd0c59961f610e6dba1e731bd74fa882", "p_userid": 1678, "p_order_id": "111111"}
+返回值：
+{
+    "orderdetail": []
+}
+期望代码：orderdetail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalcenterUppasswd</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',1)">详情</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        通过</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personalcenter__Uppasswd
+用例编号：1
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": 1942, "sign": "fc9024b15eee0e91151ded4163929a56"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": "", "sign": "d7730b51396e8c3f9142b286e05339aa"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Uppasswd|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Uppasswd|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": null, "sign": "0e4f06c5bc3b988b05e6d1a8becd0c89"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": "xxxxxx", "sign": "4e851607d95406da5b25bcf0e9d4d041"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": 11111, "sign": "4b3672fc083a0e04c32c5d919bbd7a7d"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Uppasswd|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Uppasswd|No_Userid_Found
+
+用例编号：6
+传入参数：{"p_old_password": "48d98cb0420fc2ec8c0f7a670bd61ae52f80186c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": 1942, "sign": "9185a07a28ec0eacb0dd392e221179c5"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Uppasswd|Password_Differ", 
+    "errorMessage": "密码不匹配！"
+}
+期望代码：P_Personalcenter__Uppasswd|Password_Differ
+
+用例编号：7
+传入参数：{"p_old_password": null, "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": 1942, "sign": "2d3a1389cbd8caf9bbf3d53b48ffada5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"p_old_password": "c345c82de47f5514bee8eb7b97344f1639e9492c", "p_new_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_userid": 1942, "sign": "3fd2ffa378b4fe5b9e35810bd9fa823a"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Uppasswd|Password_Differ", 
+    "errorMessage": "密码不匹配！"
+}
+期望代码：P_Personalcenter__Uppasswd|Password_Differ
+
+用例编号：9
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "48d98cb0420fc2ec8c0f7a670bd61ae52f80186c", "p_userid": 1942, "sign": "d5dc88caa4101af6b9b46b71153cdf3c"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：10
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": "ed9acd48dccb6ce2a7631e6489958163abfded9f", "p_userid": 1942, "sign": "d1fff062f395e58631dd8d218f2b4693"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：11
+传入参数：{"p_old_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_new_password": null, "p_userid": 1942, "sign": "e026e7187ae431dcc02e15026dbabe18"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalcenterGetdetail</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">详情</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        通过</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personalcenter__Getdetail
+用例编号：1
+传入参数：{"sign": "e75505b131baf85b895ba662579c72de", "p_userid": 1678, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "orderdetail": [
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:16", 
+            "detail_address": "收货地址M5gI", 
+            "locationname": "天津天津市和平区", 
+            "merchantid": 30, 
+            "mobilephone": "15131860650", 
+            "order_child_id": "2016071116011614837", 
+            "order_note": "备注fUHS9", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "receive_name": "1678收货人nmvj", 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "orderstatus": []
+}
+期望代码：orderstatus
+
+用例编号：2
+传入参数：{"sign": "93aec9dc46d8cf1059c9dc7caec3d4ef", "p_userid": "", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Getdetail|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Getdetail|No_Userid_Found
+
+用例编号：3
+传入参数：{"sign": "de5f1a23f512c3234086aa39f40ad005", "p_userid": null, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"sign": "d494b4fc65c9901f086d35136d5d8ad0", "p_userid": "xxxxx", "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"sign": "b27971941113a76e8ed12bdd65680033", "p_userid": 11111, "p_order_id": "2016071116011614837"}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Getdetail|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Getdetail|No_Userid_Found
+
+用例编号：6
+传入参数：{"sign": "58be3cbb7f59fb6e12d8747baec5b01a", "p_userid": 1678, "p_order_id": ""}
+返回值：
+{
+    "orderdetail": [], 
+    "orderstatus": []
+}
+期望代码：orderstatus
+
+用例编号：7
+传入参数：{"sign": "369e07535ddb8a8cc8f527b3624cbc1d", "p_userid": 1678, "p_order_id": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"sign": "166bdaadff6a54db161c8a2554dbd63f", "p_userid": 1678, "p_order_id": "xxxxxx"}
+返回值：
+{
+    "orderdetail": [], 
+    "orderstatus": []
+}
+期望代码：orderstatus
+
+用例编号：9
+传入参数：{"sign": "cd0c59961f610e6dba1e731bd74fa882", "p_userid": 1678, "p_order_id": "111111"}
+返回值：
+{
+    "orderdetail": [], 
+    "orderstatus": []
+}
+期望代码：orderstatus
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestPersonalcenterGetorderlist</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',1)">详情</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        通过</a>
+
+    <div id='div_pt15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Personalcenter__Getorderlist
+用例编号：1
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "48f578019c072aa2a5972b27f244f049", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:18", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011814841", 
+            "order_id": "2016071116011814841", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:17", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011714839", 
+            "order_id": "2016071116011714839", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 3, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:16", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011614837", 
+            "order_id": "2016071116011614837", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 4, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:15", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011514835", 
+            "order_id": "2016071116011514835", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 5, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:14", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011414833", 
+            "order_id": "2016071116011414833", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 6, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011314831", 
+            "order_id": "2016071116011314831", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 7, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214829", 
+            "order_id": "2016071116011214829", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 8, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:12", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214827", 
+            "order_id": "2016071116011214827", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 9, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：2
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "8b3aa5d7aa2ad86fa419e57ccdef632c", "p_search": "", "p_enddate": 20160909, "p_status": 1}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 10, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 29, 
+            "order_child_id": "2016071116012114852", 
+            "order_id": "2016071116012114852", 
+            "picture1": "/images/lemon.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 2, 
+            "product_name": "苹果", 
+            "product_price": 15, 
+            "product_status": 2, 
+            "product_sumprice": 150, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "6*7", 
+            "status": 2, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 2
+}
+期望代码：p_count
+
+用例编号：3
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "beaefaa7a740148f4d2dae62cefa7898", "p_search": "", "p_enddate": 20160909, "p_status": 2}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：4
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "4b43533b16a83f5e5d192b2cd2cd5fc8", "p_search": "", "p_enddate": 20160909, "p_status": 3}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 10, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 29, 
+            "order_child_id": "2016071116012114852", 
+            "order_id": "2016071116012114852", 
+            "picture1": "/images/lemon.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 2, 
+            "product_name": "苹果", 
+            "product_price": 15, 
+            "product_status": 2, 
+            "product_sumprice": 150, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "6*7", 
+            "status": 2, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 2
+}
+期望代码：p_count
+
+用例编号：5
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "8c431f1ffd0164b1052f55c038a0bb8e", "p_search": "", "p_enddate": 20160909, "p_status": 4}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：6
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "23426fe7da888114a7362f7812964e47", "p_search": "", "p_enddate": 20160909, "p_status": 5}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：7
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "9fcaccfa00b682f29d0572bcc287e10d", "p_search": "", "p_enddate": 20160909, "p_status": 6}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：8
+传入参数：{"p_n": 10, "p_userid": "", "p_startdate": "20160101", "p_page": 1, "sign": "a28835d91bba378929036cf9b75edb73", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Getorderlist|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Getorderlist|No_Userid_Found
+
+用例编号：9
+传入参数：{"p_n": 10, "p_userid": null, "p_startdate": "20160101", "p_page": 1, "sign": "a4e554b2f462a34a74d4953ab6014768", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：10
+传入参数：{"p_n": 10, "p_userid": "xxxxxx", "p_startdate": "20160101", "p_page": 1, "sign": "26eeec6a41c3911d9e5357cfa0416e36", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：11
+传入参数：{"p_n": 10, "p_userid": 111111, "p_startdate": "20160101", "p_page": 1, "sign": "ad5c90ce64f9ee056ed37afd963356f7", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "P_Personalcenter__Getorderlist|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Personalcenter__Getorderlist|No_Userid_Found
+
+用例编号：12
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "d6b4de1457b2be7b722edcf4c89f4877", "p_search": "", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：13
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "27f53b2999c7fa981af9df0d0bd6aaba", "p_search": null, "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：14
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "3bfe2c38a9a3c0755faea0c9f53cdace", "p_search": "xxxxxx", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：15
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "7b87748c7e10aa148924bc3a05daed4e", "p_search": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：16
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "bd02dd98a94f47efbca648118387a123", "p_search": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：17
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "7bd25b758d2c763997347428696409df", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": 1}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：18
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "738360b403daa388efd5845716eebb42", "p_search": "", "p_enddate": 20160909, "p_status": "xxxxxx"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：19
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "289e372a0dc722d8fb379a9435eac70d", "p_search": "", "p_enddate": 20160909, "p_status": 0}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：20
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "22e85d6864476f03815da13efbfa91b9", "p_search": "", "p_enddate": 20160909, "p_status": -1}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：21
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "d7416c6d9875e008510331d5803acbd9", "p_search": "", "p_enddate": 20160909, "p_status": 8}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：22
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "", "p_page": 1, "sign": "403aea05f96d15497f6eddd796a9cf50", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:18", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011814841", 
+            "order_id": "2016071116011814841", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:17", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011714839", 
+            "order_id": "2016071116011714839", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 3, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:16", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011614837", 
+            "order_id": "2016071116011614837", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 4, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:15", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011514835", 
+            "order_id": "2016071116011514835", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 5, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:14", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011414833", 
+            "order_id": "2016071116011414833", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 6, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011314831", 
+            "order_id": "2016071116011314831", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 7, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214829", 
+            "order_id": "2016071116011214829", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 8, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:12", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214827", 
+            "order_id": "2016071116011214827", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 9, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：23
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": null, "p_page": 1, "sign": "3720f8dba58a4e4abe2aa68a6455dc1d", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：24
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "xxxxxx", "p_page": 1, "sign": "1457c4835472022a2bc685d68d724eaf", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：25
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "151212", "p_page": 1, "sign": "5c3682e58de5aeea7f0de8ff9ec5384a", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：26
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "201512311", "p_page": 1, "sign": "d8bd136430d381b78d3bb53c070d2142", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：27
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20151313", "p_page": 1, "sign": "756aef426cea98241724920d7621b0d7", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：28
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20151233", "p_page": 1, "sign": "74a32db32ce0115f8c542101ca6b466b", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：29
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "be8c1e8d925059b3d2833e6c6a265629", "p_search": "\u67e0\u6aac", "p_enddate": "", "p_status": ""}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:18", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011814841", 
+            "order_id": "2016071116011814841", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:17", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011714839", 
+            "order_id": "2016071116011714839", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 3, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:16", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011614837", 
+            "order_id": "2016071116011614837", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 4, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:15", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011514835", 
+            "order_id": "2016071116011514835", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 5, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:14", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011414833", 
+            "order_id": "2016071116011414833", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 6, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011314831", 
+            "order_id": "2016071116011314831", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 7, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214829", 
+            "order_id": "2016071116011214829", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 8, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:12", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214827", 
+            "order_id": "2016071116011214827", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 9, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：30
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "bca5986b0366497b5bacdd4203bb6af8", "p_search": "\u67e0\u6aac", "p_enddate": null, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：31
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "c9bfc177bdb3845c894714b9fc1ec5e8", "p_search": "\u67e0\u6aac", "p_enddate": "xxxxxx", "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：32
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "3803010a2f646f6e861be26173bd83e1", "p_search": "\u67e0\u6aac", "p_enddate": 160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：33
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "e383ca671d24cb167b183b40dc8ecac7", "p_search": "\u67e0\u6aac", "p_enddate": 201609091, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：34
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "e0eb77889a685724e4c7a4a2d495f748", "p_search": "\u67e0\u6aac", "p_enddate": 20161313, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：35
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "5b1e0956d1a3c85dd394c120e685aea2", "p_search": "\u67e0\u6aac", "p_enddate": 20160933, "p_status": ""}
+返回值：
+{
+    "errorCode": "UnknownError", 
+    "errorMessage": "未知错误"
+}
+期望代码：UnknownError
+
+用例编号：36
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160909", "p_page": 1, "sign": "c7e1fabed4842696dc07b76d258af5cb", "p_search": "\u67e0\u6aac", "p_enddate": 20160101, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 0
+}
+期望代码：p_count
+
+用例编号：37
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": "", "sign": "57cea618e794c09d25d4e0f54847cf94", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：38
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": null, "sign": "a68b1ea045379a4da1d4de0d11a6d0da", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：39
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": "xxxxx", "sign": "50e218f3fc1172cae93957780f600483", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：40
+传入参数：{"p_n": 10, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1111, "sign": "644ca3daa20ad26e65d1ac1e0a6c6c5b", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：41
+传入参数：{"p_n": "", "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "a8e357d278614214784ff593f2493ae5", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [], 
+    "p_count": 9
+}
+期望代码：p_count
+
+用例编号：42
+传入参数：{"p_n": null, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "51c16079b66008cf95aca2816d6b0200", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：43
+传入参数：{"p_n": "xxxxx", "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "38d2287385d48465fbdd04c4611badfd", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：44
+传入参数：{"p_n": 1111, "p_userid": 1678, "p_startdate": "20160101", "p_page": 1, "sign": "fdfb63769fa1dcbc6705e4da2afcdc76", "p_search": "\u67e0\u6aac", "p_enddate": 20160909, "p_status": ""}
+返回值：
+{
+    "orderlist": [
+        {
+            "countnum": 25, 
+            "create_time": "2016-07-11 16:01:21", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116012114851", 
+            "order_id": "2016071116012114851", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": "2016-07-14 16:01:55", 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 500, 
+            "rn": 1, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 3, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:18", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011814841", 
+            "order_id": "2016071116011814841", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 2, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:17", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011714839", 
+            "order_id": "2016071116011714839", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 3, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:16", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011614837", 
+            "order_id": "2016071116011614837", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 4, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:15", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011514835", 
+            "order_id": "2016071116011514835", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 5, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:14", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011414833", 
+            "order_id": "2016071116011414833", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 6, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011314831", 
+            "order_id": "2016071116011314831", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 7, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:13", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214829", 
+            "order_id": "2016071116011214829", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 8, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }, 
+        {
+            "countnum": 5, 
+            "create_time": "2016-07-11 16:01:12", 
+            "isextend_prepare": 0, 
+            "isrefund": 0, 
+            "merchantid": 30, 
+            "order_child_id": "2016071116011214827", 
+            "order_id": "2016071116011214827", 
+            "picture1": "/images/items/lemon2.jpg", 
+            "prepare_time": null, 
+            "product_id": 1, 
+            "product_name": "柠檬", 
+            "product_price": 20, 
+            "product_status": 2, 
+            "product_sumprice": 100, 
+            "rn": 9, 
+            "send_time": null, 
+            "shopname": "徐玲凤测试商铺1", 
+            "spec_typegroup": "纸盒*1斤", 
+            "spectypegroup_id": "1*3", 
+            "status": 8, 
+            "type1": "包装:纸盒", 
+            "type2": "重量:1斤", 
+            "username": "15856447403"
+        }
+    ], 
+    "p_count": 9
+}
+期望代码：p_count
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestRealnameUpauthentication</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',1)">详情</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.1')" >
+        通过</a>
+
+    <div id='div_pt16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Realname__Upauthentication
+用例编号：1
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "7395787adf885d3abec2f12140a1fdcc", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "856636655824435505"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：2
+传入参数：{"p_userid": "", "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "f3591df4eee5fd279c46eb68fdbe5239", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "392859845974888901"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Realname__Upauthentication|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_userid": null, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "2e5a0a71582e70213710ff466e368202", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "272851793642150500"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxxx", "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "f2c4e3f47c445eaa1e09fb63e0d5c5da", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "014718171653003406"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 1111111, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "6454562208c3d4b3e4841972e5000f08", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "432937775458314608"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Realname__Upauthentication|No_Userid_Found
+
+用例编号：6
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "", "sign": "fe0be0b027582627b7f8c3b288c8bbab", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "577440453157475881"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|NO_Realname_Found", 
+    "errorMessage": "真实姓名不能为空！"
+}
+期望代码：P_Realname__Upauthentication|NO_Realname_Found
+
+用例编号：7
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": null, "sign": "7254ab7bdbf2e01fc71ec87cc22fc746", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "013947037587004918"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1", "sign": "83beac4e2e25277decf2ae7b90f26acd", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "763317488922784233"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：9
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "sign": "831501f62134b48dd09d8009bffa7d80", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "714749518597883872"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：10
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e941", "sign": "279667d8633a6256cb0087abb2dc634b", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "036858084967440240"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：11
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94\u771f\u5b9e\u59d3\u540d\u4e94", "sign": "abfb0e6d7072f0ed132dce4d1d4f72b4", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "958773791000550503"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：12
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "1f598c1b28ea9371a9225a137576b3fb", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": ""}
+返回值：
+{}
+期望代码：{}
+
+用例编号：13
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "81899ec9fc2564187df514bda059e56f", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": null}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：14
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "538703b2ab21250a9df77cd317252922", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "0000"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|Idcardnumber_Wrong", 
+    "errorMessage": "身份证号必须是18位！"
+}
+期望代码：P_Realname__Upauthentication|Idcardnumber_Wrong
+
+用例编号：15
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "35a8897efc97520d7d92d93d446775f6", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "xxxxxxxxxxxxxxxxxx"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：16
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "3a3b262a498af552311c30d2fd5d1e30", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "1111111111111111111"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：17
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "6a1da668d2d48ce72e3cb1e42da34363", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "\u4e2d\u6587\u4e2d\u6587\u4e2d\u6587\u4e2d\u6587\u4e2d"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|Idcardnumber_Wrong", 
+    "errorMessage": "身份证号必须是18位！"
+}
+期望代码：P_Realname__Upauthentication|Idcardnumber_Wrong
+
+用例编号：18
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "514a3f34448554dcaf8db5826bde5c21", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "529154840215227983"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|NO_Idcardfront_Found", 
+    "errorMessage": "身份证正面不能为空！"
+}
+期望代码：P_Realname__Upauthentication|NO_Idcardfront_Found
+
+用例编号：19
+传入参数：{"p_userid": 1944, "p_idcardfronturl": null, "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "bb8a3e40415896899f2ea4769117236d", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "213767688649739757"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：20
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "b22d2d03e08abac7bcf6dcb3f141ccfb", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "246408399359342949"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：21
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "dde8d5e8062e8ef62f225fd6d0e5dd69", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "459102381240107602"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：22
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b571", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "c87640a9571cb852869e55a9a816a656", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "179490820981191165"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：23
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "0e73fef40213d8b274faa482702159dd", "p_idcardbackurl": "/jj.jpg", "p_idcardnumber": "980792182352155459"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：24
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "f6d1626a2fe8b7667b127dad36539c39", "p_idcardbackurl": "", "p_idcardnumber": "452566751131981864"}
+返回值：
+{
+    "errorCode": "P_Realname__Upauthentication|NO_Idcardback_Found", 
+    "errorMessage": "身份证背面不能为空！"
+}
+期望代码：P_Realname__Upauthentication|NO_Idcardback_Found
+
+用例编号：25
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "d07b5373e10d5e4ce10ed5f6d64127f2", "p_idcardbackurl": null, "p_idcardnumber": "969873019475071482"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：26
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "b04ec73001f36c0d3773ec462d94942b", "p_idcardbackurl": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_idcardnumber": "612394863849474153"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：27
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "1e652473722bf3292098aaf953f48225", "p_idcardbackurl": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "p_idcardnumber": "253378504640522969"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：28
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "c405ec54265f2cf6868845fbc6f23e09", "p_idcardbackurl": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b571", "p_idcardnumber": "101948571072985027"}
+返回值：
+{
+    "errorCode": "Parameter|LengthInvalid", 
+    "errorMessage": "参数长度检查失败"
+}
+期望代码：Parameter|LengthInvalid
+
+用例编号：29
+传入参数：{"p_userid": 1944, "p_idcardfronturl": "/ss.jpg", "p_realname": "\u771f\u5b9e\u59d3\u540d", "sign": "2c655563e33c28cf5ae23f378c6d3c3b", "p_idcardbackurl": "\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57\u6211\u662f\u4e94\u4e2a\u5b57", "p_idcardnumber": "256524406583495614"}
+返回值：
+{}
+期望代码：{}
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestRealnameGetauthentication</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',1)">详情</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        通过</a>
+
+    <div id='div_pt17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.1: 接口地址：http://192.168.7.227:8080/zhigou/P_Realname__Getauthentication
+用例编号：1
+传入参数：{"p_userid": 1943, "sign": "0cfabfb178be9e6c07a5280a8acffcad"}
+返回值：
+{
+    "p_idcardnumber": "508192487991446333", 
+    "p_real_status": 2, 
+    "p_realname": "JJ"
+}
+期望代码：p_realname
+
+用例编号：2
+传入参数：{"p_userid": "", "sign": "02808564fb59e0726f914be40c07c17d"}
+返回值：
+{
+    "errorCode": "P_Realname__Getauthentication|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Realname__Getauthentication|No_Userid_Found
+
+用例编号：3
+传入参数：{"p_userid": null, "sign": "e5413e79e4dc296d6e609c27ae9180b5"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：4
+传入参数：{"p_userid": "xxxxx", "sign": "aa66d0114ee528c4197a3ab367b85982"}
+返回值：
+{
+    "errorCode": "Parameter|NotIntegerValue", 
+    "errorMessage": "参数类型错误"
+}
+期望代码：Parameter|NotIntegerValue
+
+用例编号：5
+传入参数：{"p_userid": 11111, "sign": "d81caed331504033e9b801a2b1989508"}
+返回值：
+{
+    "errorCode": "P_Realname__Getauthentication|No_Userid_Found", 
+    "errorMessage": "请输入正确的用户ID！"
+}
+期望代码：P_Realname__Getauthentication|No_Userid_Found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test.API_test.common.TestStuff.TestUserResetPassword</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">详情</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stuff</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        通过</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: 接口地址：http://192.168.7.227:8080/zhigou/P_User__ResetPassword
+用例编号：1
+传入参数：{"p_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_mobile": "", "sign": "cc2cc89b059f3223094f780ab673fda8"}
+返回值：
+{
+    "errorCode": "P_User__ReGetPassword|No_UserMobile_Found", 
+    "errorMessage": "请输入正确的手机号！"
+}
+期望代码：P_User__ReGetPassword|No_UserMobile_Found
+
+用例编号：2
+传入参数：{"p_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_mobile": null, "sign": "ef167a1473eccb39ca70fabdcc56af6e"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：3
+传入参数：{"p_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_mobile": "xxxxx", "sign": "f0d8458f3db22838e617c7ee54313057"}
+返回值：
+{
+    "errorCode": "P_User__ReGetPassword|No_UserMobile_Found", 
+    "errorMessage": "请输入正确的手机号！"
+}
+期望代码：P_User__ReGetPassword|No_UserMobile_Found
+
+用例编号：4
+传入参数：{"p_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_mobile": "11111111111", "sign": "34acc45f9ec79c0441c6b3de8308557d"}
+返回值：
+{
+    "errorCode": "P_User__ReGetPassword|No_UserMobile_Found", 
+    "errorMessage": "请输入正确的手机号！"
+}
+期望代码：P_User__ReGetPassword|No_UserMobile_Found
+
+用例编号：5
+传入参数：{"p_password": "48d98cb0420fc2ec8c0f7a670bd61ae52f80186c", "p_mobile": "13903623609", "sign": "3afea9b6525c60efaddfb0b7e40f7954"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：6
+传入参数：{"p_password": "ed9acd48dccb6ce2a7631e6489958163abfded9f", "p_mobile": "13903623609", "sign": "cac79f06b99e1db72bee7d9a1749db11"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：7
+传入参数：{"p_password": null, "p_mobile": "13903623609", "sign": "c4f69badda2c1600901169e21bbb6606"}
+返回值：
+{
+    "errorCode": "Parameter|NullValue", 
+    "errorMessage": "参数不能为空"
+}
+期望代码：Parameter|NullValue
+
+用例编号：8
+传入参数：{"p_password": "f62490890185b18eef5e440356fc8e7a13adfda5", "p_mobile": "13903623609", "sign": "dfcecb17dc75d90c8100c25996ba9a21"}
+返回值：
+{}
+期望代码：{}
+
+用例编号：9
+传入参数：{"p_password": "5299fab8095d18869ad20fdd4c85650306cdcd9c", "p_mobile": "13903623609", "sign": "4da337e1e7baa2da88ec3381c1b58ea0"}
+返回值：
+{}
+期望代码：{}
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>18</td>
+    <td>18</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</div>
+</body>
+</html>
