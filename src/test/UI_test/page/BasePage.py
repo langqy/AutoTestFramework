@@ -4,8 +4,6 @@ from time import sleep
 
 from selenium.webdriver.common.action_chains import ActionChains
 
-from src.utils.browser import Browser
-
 
 class ParameterError(Exception):
     pass

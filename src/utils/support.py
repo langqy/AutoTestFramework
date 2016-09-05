@@ -48,6 +48,7 @@ def random_number_str(length=1):
 
 # todo(396214358@qq.com): 身份证号检查与生成
 
+
 # organization code
 class OrganizationCode(object):
 
@@ -99,15 +100,6 @@ class OrganizationCode(object):
                 return '组织机构代码证错误!（校验码错误）'
             else:
                 return '验证通过，组织机构代码证格式正确！'
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
