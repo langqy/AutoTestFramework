@@ -82,3 +82,18 @@ class ParameterError(Error):
     pass
 
 
+class UploadFileError(Error):
+    """Thrown when upload files not available."""
+    pass
+
+
+class UploadWindowNotOpenError(Error):
+    """Thrown when upload window not open."""
+    pass
+
+
+class UploadWindowOpenError(Error):
+    """Thrown when open upload window error."""
+    pass
+
+

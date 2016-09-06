@@ -23,13 +23,32 @@ TYPES = {'firefox': webdriver.Firefox, 'chrome': webdriver.Chrome, 'ie': webdriv
 
 
 class Browser(object):
+    """浏览器类，根据传入的参数打开不同的浏览器
+
+    methods:
+
+        __init__(url, browser_type='firefox')
+            初始化浏览器。默认浏览器类型是firefox
+
+        open()
+            打开浏览器，打开url，并默认设置最大化窗口，设置隐性等待时间为30s
+
+        save_screen_shot(name='screen_shot')
+            保存屏幕截图。保存到report\{today date}\{date}-{time}_{name}.png下
+
+        close()
+            关闭当前window
+
+        quit()
+            退出浏览器
+    """
 
     def __init__(self, url, browser_type='firefox'):
         self.type = browser_type
         self.current_url = url
         self.driver = self._check_type()
         if not self.driver:
-            raise UnSupportBrowserTypeException('Only support Firefox(1), Chrome(2) and IE(3)!')
+            raise UnSupportBrowserTypeException('Only support Firefox, Chrome and IE!')
 
     def _check_type(self):
         if self.type in TYPES:
