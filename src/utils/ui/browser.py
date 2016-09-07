@@ -20,6 +20,7 @@ ChromeDriver = DRIVER_PATH + '\\chromedriver.exe'
 IEDriver = DRIVER_PATH + '\\IEDriverServer.exe'
 
 TYPES = {'firefox': webdriver.Firefox, 'chrome': webdriver.Chrome, 'ie': webdriver.Ie}
+EXECUTABLE_PATH = {'firefox': 'wires', 'chrome': ChromeDriver, 'ie': IEDriver}
 
 
 class Browser(object):
@@ -44,10 +45,10 @@ class Browser(object):
     """
 
     def __init__(self, url, browser_type='firefox'):
-        self.type = browser_type
+        self.type = browser_type.lower()
         self.current_url = url
-        self.driver = self._check_type()
-        if not self.driver:
+        self._driver = self._check_type()
+        if not self._driver:
             raise UnSupportBrowserTypeException('Only support Firefox, Chrome and IE!')
 
     def _check_type(self):
@@ -58,7 +59,7 @@ class Browser(object):
 
     def open(self):
         try:
-            self.driver = self.driver()
+            self.driver = self._driver(executable_path=EXECUTABLE_PATH[self.type])
         except WebDriverException:
             raise WebDriverException('打开浏览器出错，请检查浏览器驱动或版本兼容情况！')
         try:
@@ -68,6 +69,10 @@ class Browser(object):
             raise WebDriverException('打开网址出错，请检查网址或者网络！')
         self.driver.maximize_window()
         self.driver.implicitly_wait(30)
+
+    @property
+    def name(self):
+        return self.driver.name
 
     def _png_name(self, name):
         day = save_date()
@@ -219,10 +224,14 @@ class Page(Browser):
         else:
             raise ParameterError('并无匹配的窗口，请检查传入参数！')
 
+    def switch_to_frame(self, param):
+        self.driver.switch_to.frame(param)
+
 
 if __name__ == '__main__':
     bd = 'https://www.baidu.com'
-    dr = Page(url=bd)
+    dr = Page(url=bd, browser='ie')
+    print dr.driver.name
     # dr.open()
     dr.find_element_by_id('kw').send_keys('python')
     dr.wait()

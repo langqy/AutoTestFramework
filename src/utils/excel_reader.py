@@ -64,8 +64,7 @@ ReadXls -- read xls and return a list (zipped first line and other rows)
 from xlrd import open_workbook
 from src.utils.config import DefaultConfig
 from src.utils.utils_exception import DataFileNotAvailableException, DataError, SheetTypeError, SheetError
-
-# todo:log
+from src.utils.logger import Logger
 
 
 class ExcelReader(object):
@@ -75,40 +74,43 @@ class ExcelReader(object):
         :param book: work_book name.Not path.
         :param sheet: index of sheet or sheet name.
         """
+        self.logger = Logger(__name__).return_logger()
         self.book_name = '{0}\\{1}'.format(DefaultConfig().data_path, book)
-        self.sheet = sheet
+        self.sheet_locator = sheet
 
         self.book = self._book()
+        self.sheet = self._sheet()
 
     def _book(self):
-
         try:
             work_book = open_workbook(self.book_name)
-        except IOError, e:
+        except IOError as e:
             raise DataFileNotAvailableException(e)
+        self.logger.info('open workbook {0}'.format(self.book_name))
         return work_book
 
     def _sheet(self):
         """Return sheet"""
-        if type(self.sheet) not in [int, str]:
+        if type(self.sheet_locator) not in [int, str]:
             raise SheetTypeError('Please pass in <type \'int\'> or <type \'str\'>, not {0}'.format(type(self.sheet)))
-        elif type(self.sheet) == int:
+        elif type(self.sheet_locator) == int:
             try:
-                sheet = self.book.sheet_by_index(self.sheet)  # by index
+                sheet = self.book.sheet_by_index(self.sheet_locator)  # by index
             except:
-                raise SheetError('Sheet \'{0}\' not exists.'.format(self.sheet))
+                raise SheetError('Sheet \'{0}\' not exists.'.format(self.sheet_locator))
         else:
             try:
-                sheet = self.book.sheet_by_name(self.sheet)  # by name
+                sheet = self.book.sheet_by_name(self.sheet_locator)  # by name
             except:
-                raise SheetError('Sheet \'{0}\' not exists.'.format(self.sheet))
+                raise SheetError('Sheet \'{0}\' not exists.'.format(self.sheet_locator))
+        self.logger.info('read sheet {0}'.format(self.sheet_locator))
         return sheet
 
     @property
     def title(self):
         """First row is title."""
         try:
-            return self._sheet().row_values(0)
+            return self.sheet.row_values(0)
         except IndexError:
             raise DataError('This is a empty sheet, please check your file.')
 
@@ -118,7 +120,7 @@ class ExcelReader(object):
 
             [{row1:row2},{row1:row3},{row1:row4}...]
         """
-        sheet = self._sheet()
+        sheet = self.sheet
         title = self.title
         data = list()
 

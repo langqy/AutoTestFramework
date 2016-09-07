@@ -24,9 +24,6 @@ from ConfigParser import ConfigParser, NoSectionError, NoOptionError
 from src.utils.utils_exception import ConfigFileException, ConfigError
 
 
-# todo(396214358@qq.com): log when log module finished.
-
-
 # 获取当前文件绝对路径，从而获得config层路径
 UTILS_PATH = os.path.split(os.path.realpath(__file__))[0]
 CONFIG_PATH = UTILS_PATH + '\\..\\..\\config\\'  # config层
@@ -40,20 +37,6 @@ class Config(ConfigParser):
             self.read(self.path)
         else:
             raise ConfigFileException('Config file not exists or not available.Please check {}.'.format(self.path))
-
-
-class DefaultConfig(Config):
-    """
-        -properties:
-            db_connect  : Return database string which can use to connect to database.
-            base_path   : Return [path].base value.
-            log_path    : Return [path].log value or default log path.
-            report_path : Return [path].report value or default report path.
-            data_path   : Return [path].data value or default data path.
-            driver_path : Return default driver path.
-    """
-    def __init__(self):
-        Config.__init__(self)
 
     def _mysql_connect(self):
         """Get sqlalchemy database connection string."""
@@ -87,6 +70,20 @@ class DefaultConfig(Config):
         except NoSectionError and NoOptionError:
             raise ConfigError('[db] section is required. And [db] section must have these options:'
                               '"driver", "user", "pwd", "host", "port", "db_name"')
+
+
+class DefaultConfig(Config):
+    """
+        -properties:
+            db_connect  : Return database string which can use to connect to database.
+            base_path   : Return [path].base value.
+            log_path    : Return [path].log value or default log path.
+            report_path : Return [path].report value or default report path.
+            data_path   : Return [path].data value or default data path.
+            driver_path : Return default driver path.
+    """
+    def __init__(self):
+        Config.__init__(self)
 
     @property
     def base_path(self):

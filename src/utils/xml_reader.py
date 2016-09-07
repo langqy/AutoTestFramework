@@ -52,22 +52,23 @@ ReadXML -- read xml and return api, and api type.
 """
 from xml.etree.ElementTree import ElementTree
 from src.utils.config import DefaultConfig
-from src.utils.logger import log
 from src.utils.utils_exception import DataFileNotAvailableException, DataError
-
-# todo:log
+from src.utils.logger import Logger
 
 
 class XMLReader(object):
 
     def __init__(self, xml):
+        self.logger = Logger(__name__).return_logger()
         self.xml = '{0}\\{1}'.format(DefaultConfig().data_path, xml)
+
+        self.tree = self._tree()
+        self.logger.info('read file: {0}'.format(self.xml))
 
     def _tree(self):
         try:
             return ElementTree(file=self.xml)
-        except IOError, e:
-            # log('read_xml', e)
+        except IOError as e:
             raise DataFileNotAvailableException(e)
 
     def get_url(self, tag):
@@ -84,10 +85,10 @@ class XMLReader(object):
         :param tag: xml tag name or xpath.
         :return: tag text.
         """
-        tree = self._tree()
+        tree = self.tree
         try:
             return tree.find(tag).text.strip()
-        except AttributeError, e:
+        except AttributeError:
             raise DataError('\'{0}\' does not have \'{1}\' element.Check your file.'.format(self.xml, tag))
 
     def get_type(self, tag):

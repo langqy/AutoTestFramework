@@ -23,13 +23,15 @@ class Logger(object):
     def __init__(self, logger_name='root'):
 
         self.logger = logging.getLogger(logger_name)
+        logging.root.setLevel(logging.NOTSET)
 
         cf = DefaultConfig()
         self.log_path = cf.log_path
         self.log_file_name = cf.get('logging', 'log_file_name')
+        self.backup_count = cf.getint('logging', 'backup_count')
+
         self.console_output_level = cf.get('logging', 'console_output_level')
         self.file_output_level = cf.get('logging', 'file_output_level')
-        self.backup_count = cf.getint('logging', 'backup_count')
 
         self.console_output = cf.getint('logging', 'console_output')
         self.file_output = cf.getint('logging', 'file_output')
@@ -60,4 +62,6 @@ class Logger(object):
 
 if __name__ == '__main__':
     logger = Logger().return_logger()
-    logger.error('hello world')
+
+    logger.warning('hello world')
+    logger.info('hi')
