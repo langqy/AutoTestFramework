@@ -99,15 +99,43 @@ class XMLReader(object):
         """
         return self.get_text('.//{0}/type'.format(tag))
 
+    def get_method(self, tag):
+        """Get interface type.
+
+        :param tag: xml tag name.
+        :return: interface method.
+        """
+        return self.get_text('.//{0}/method'.format(tag))
+
+    # todo: 补齐注释
+    def get_file(self, tag):
+        return self.get_text('.//{0}/file'.format(tag))
+
+    def get_sheet(self, tag):
+        return self.get_text('.//{0}/sheet'.format(tag))
+
     @property
     def base_url(self):
         """Get <Base></Base> text if exists."""
         return self.get_text('Base')
 
+    def get_all_interfaces(self):
+        base = self.tree.find('Base')
+        interfaces = list()
+
+        for element in self.tree.getroot().getchildren():
+            if element != base:
+                interfaces.append(element.text.strip())
+
+        return interfaces
+
+
+
 
 if __name__ == '__main__':
     x1 = XMLReader('zhigou.xml')
-    print x1.get_url('CheckCode')
-    print x1.get_type('CheckCode')
-    print x1.get_text('CheckCode')
-    print x1.base_url
+    # print x1.get_url('CheckCode')
+    # print x1.get_type('CheckCode')
+    # print x1.get_text('CheckCode')
+    # print x1.base_url
+    print x1.get_all_interfaces()

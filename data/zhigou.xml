@@ -6,7 +6,10 @@
     <!-- 商家入驻接口 14 -->
     <CheckCode>
         P_Merchant__CheckCode
-        <type>POST</type>
+        <type>rest</type>
+        <method>POST</method>
+        <file>check.xlsx</file>
+        <sheet>P_Merchant__CheckCode</sheet>
     </CheckCode>
     <CheckName>P_Merchant__CheckName</CheckName>
     <GetApplyList>P_Merchant__GetApplyList</GetApplyList>

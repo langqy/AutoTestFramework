@@ -39,24 +39,27 @@ class Logger(object):
         self.formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     def return_logger(self):
-        # if True, 在console中输出日志
-        if self.console_output == 1:
-            console_handler = logging.StreamHandler()
-            console_handler.setFormatter(self.formatter)
-            console_handler.setLevel(self.console_output_level)
-            self.logger.addHandler(console_handler)
-        else:
-            pass
+        """在logger中添加日志句柄并返回，如果logger已有句柄，则直接返回"""
+        if not self.logger.handlers:  # 避免重复日志
+            # if True, 在console中输出日志
+            if self.console_output == 1:
+                console_handler = logging.StreamHandler()
+                console_handler.setFormatter(self.formatter)
+                console_handler.setLevel(self.console_output_level)
+                self.logger.addHandler(console_handler)
+            else:
+                pass
 
-        # if True, 在日志文件中输出日志
-        if self.file_output == 1:
-            # 每天重新创建一个日志文件，最多保留backup_count份
-            file_handler = TimedRotatingFileHandler(self.log_path + self.log_file_name, 'D', 1, self.backup_count)
-            file_handler.setFormatter(self.formatter)
-            file_handler.setLevel(self.file_output_level)
-            self.logger.addHandler(file_handler)
-        else:
-            pass
+            # if True, 在日志文件中输出日志
+            if self.file_output == 1:
+                # 每天重新创建一个日志文件，最多保留backup_count份
+                # todo: 这里应该有个bug，日志是看handler的时间而分日志，而不是自然日
+                file_handler = TimedRotatingFileHandler(self.log_path + self.log_file_name, 'midnight', 1, self.backup_count)
+                file_handler.setFormatter(self.formatter)
+                file_handler.setLevel(self.file_output_level)
+                self.logger.addHandler(file_handler)
+            else:
+                pass
         return self.logger
 
 
