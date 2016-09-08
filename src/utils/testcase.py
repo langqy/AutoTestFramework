@@ -64,6 +64,8 @@ class TestCaseGenerator(object):
 
         class_string = 'class Test%s(unittest.TestCase):\n\n' % tag
 
+        # todo: rest webservice socket
+
         if interface_type in ['rest', 'restful', 'http']:
             setup_string = self.get_rest_setup(tag)
             cases_string = ''
