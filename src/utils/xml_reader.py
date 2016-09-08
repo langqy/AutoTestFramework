@@ -5,7 +5,7 @@ For example:
 
     Data file like this:
 
-        zhigou.xml:
+        zhigou1.xml:
 
             <?xml version="1.0"?>
             <urls>
@@ -19,7 +19,7 @@ For example:
 
     Code:
 
-        xml = ReadXML('zhigou.xml')
+        xml = ReadXML('zhigou1.xml')
         print xml.get_url('CheckCode')
         print xml.get_type('CheckCode')
 
@@ -119,23 +119,21 @@ class XMLReader(object):
         """Get <Base></Base> text if exists."""
         return self.get_text('Base')
 
-    def get_all_interfaces(self):
+    def get_tags(self):
         base = self.tree.find('Base')
-        interfaces = list()
-
+        tags = list()
         for element in self.tree.getroot().getchildren():
             if element != base:
-                interfaces.append(element.text.strip())
-
-        return interfaces
-
-
+                tags.append(element.tag)
+        return tags
 
 
 if __name__ == '__main__':
-    x1 = XMLReader('zhigou.xml')
+    x1 = XMLReader('zhigou1.xml')
     # print x1.get_url('CheckCode')
     # print x1.get_type('CheckCode')
     # print x1.get_text('CheckCode')
     # print x1.base_url
-    print x1.get_all_interfaces()
+    # print x1.get_all_interfaces()
+    print x1.get_type('CheckCode')
+    print x1.get_tags()

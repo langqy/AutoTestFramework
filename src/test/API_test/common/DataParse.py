@@ -6,7 +6,7 @@ from src.utils import log
 
 class DataParse:
 
-    def __init__(self, datafile='check.xlsx', sheet_name='sheet0', userid=None):
+    def __init__(self, datafile='zhigou.xlsx', sheet_name='sheet0', userid=None):
         self.datafile = datafile
         self.sheet_name = sheet_name
         self.userid = userid

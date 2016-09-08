@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.common.exceptions import WebDriverException
-from configparser import NoSectionError, NoOptionError
+from ConfigParser import NoSectionError, NoOptionError
 
 
 class Error(Exception):

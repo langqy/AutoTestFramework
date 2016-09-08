@@ -9,7 +9,7 @@ from src.utils import ReadXML
 class TestCheckName(unittest.TestCase):
     def setUp(self):
         self.sheet_name = 'CheckName'
-        self.url = ReadXML('zhigou.xml').get_url(self.sheet_name)
+        self.url = ReadXML('zhigou1.xml').get_url(self.sheet_name)
 
     def test_checkname(self):
         results = BaseCaseOperate(self.url, sheet_name=self.sheet_name).run()

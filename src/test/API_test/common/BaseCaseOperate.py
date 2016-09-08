@@ -14,7 +14,7 @@ from src.utils.randomGen import random_number_str
 
 class BaseCaseOperate:
 
-    def __init__(self, url, datafile='check.xlsx', sheet_name='sheet0', ifsign=1, userid=None, prepare=False):
+    def __init__(self, url, datafile='zhigou.xlsx', sheet_name='sheet0', ifsign=1, userid=None, prepare=False):
         self.url = url
         self.datafile = datafile
         self.sheet_name = sheet_name

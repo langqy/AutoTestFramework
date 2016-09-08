@@ -11,6 +11,7 @@
     - requests
     - bs4
     - selenium
+    - ConfigParser
     - SQLAlchemy
     - suds
     - xlrd, xlwt

@@ -7,7 +7,7 @@ from src.utils import Encrypt
 
 
 class NewUserCheck(BaseCaseOperate):
-    def __init__(self, url, datafile='check.xlsx', sheet_name='sheet0', ifsign=1, userid=None):
+    def __init__(self, url, datafile='zhigou.xlsx', sheet_name='sheet0', ifsign=1, userid=None):
         BaseCaseOperate.__init__(self, url, datafile, sheet_name, ifsign)
         self.userid = userid
 

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<urls>
+    <!-- 存放所有接口地址，数据文件Excel中的sheet名需与这里相应的节点名相同 -->
+    <Base>http://192.168.7.227:8080/zhigou/</Base>
+
+    <!-- 商家入驻接口 14 -->
+    <CheckCode>
+        P_Merchant__CheckCode
+        <type>rest</type>
+        <method>POST</method>
+        <file>check.xlsx</file>
+        <sheet>P_Merchant__CheckCode</sheet>
+    </CheckCode>
+    <CheckName>P_Merchant__CheckName</CheckName>
+    <GetApplyList>P_Merchant__GetApplyList</GetApplyList>
+    <GetMobile>P_User__GetMobile</GetMobile>
+    <GetArea>P_User__GetArea</GetArea>
+    <AddStep1>P_Merchant__AddStep1</AddStep1>
+    <AddStep2>P_Merchant__AddStep2</AddStep2>
+    <AddStep3>P_Merchant__AddStep3</AddStep3>
+    <GetBasicStatus>P_Merchant__GetBasicStatus</GetBasicStatus>
+    <OpenShop>P_Merchant__OpenShop</OpenShop>
+    <AddUser>P_User__AddUser</AddUser>
+    <GetUserPasswordInfo>P_User__GetUserPasswordInfo</GetUserPasswordInfo>
+    <Bind>R_Bind__User</Bind>
+    <UnBind>R_UnBind__User</UnBind>
+
+
+    <!-- 网上购物接口 30 -->
+    <GetBestId>P_Bind__GetBestId</GetBestId>
+    <BuyNow>P_Buy__Now</BuyNow>
+    <Navigation>P_List__Navigation</Navigation>
+    <LocalitystoreGet>P_Localitystore__Get</LocalitystoreGet>
+    <OrderAdd>P_Order__Add</OrderAdd>
+    <OrderGet>P_Order__Get</OrderGet>
+    <PresettlementCreate>P_Presettlement__Create</PresettlementCreate>
+    <PresettlementGet>P_Presettlement__Get</PresettlementGet>
+    <ProductGetCategory>P_Product__GetCategory</ProductGetCategory>
+    <ProductGetDetail>P_Product__GetDetail</ProductGetDetail>
+    <ProductGetList>P_Product__GetList</ProductGetList>
+    <ProductGetDetailPic>P_Product__GetPDetail</ProductGetDetailPic>
+    <ProductGetRecomm>P_Product__GetRecomm</ProductGetRecomm>
+    <ProductNavigation>P_Product__Navigation</ProductNavigation>
+    <ProductSearch>P_Product__Search</ProductSearch>
+    <ProductSearchshop>P_Product__Searchshop</ProductSearchshop>
+    <ReceiveaddrAdd>P_Receiveaddr__Add</ReceiveaddrAdd>
+    <ReceiveaddrDefault>P_Receiveaddr__Default</ReceiveaddrDefault>
+    <ReceiveaddrDelete>P_Receiveaddr__Delete</ReceiveaddrDelete>
+    <ReceiveaddrGet>P_Receiveaddr__Get</ReceiveaddrGet>
+    <ReceiveaddrUpdate>P_Receiveaddr__Update</ReceiveaddrUpdate>
+    <GetProductList>P_Shop_GetProductList</GetProductList>
+    <ShoppingCartAdd>P_ShoppingCart__Add</ShoppingCartAdd>
+    <ShoppingCartDelete>P_ShoppingCart__Delete</ShoppingCartDelete>
+    <ShoppingCartGet>P_ShoppingCart__Get</ShoppingCartGet>
+    <ShoppingCartNumber>P_ShoppingCart__Number</ShoppingCartNumber>
+    <ShoppingCartUpdate>P_ShoppingCart__Update</ShoppingCartUpdate>
+    <PurchasePay>R_Purchase__Pay</PurchasePay>
+    <ProductGetBrandList>P_Product__GetBrandList</ProductGetBrandList>
+    <ProductGetRecommendList>P_Product__GetRecommendList</ProductGetRecommendList>
+
+
+    <!-- 个人中心接口 24 -->
+    <CollectionAdd>P_Collection__Add</CollectionAdd>
+    <CollectionDelete>P_Collection__Delete</CollectionDelete>
+    <CollectionGet>P_Collection__Get</CollectionGet>
+    <PersonalAgainshopping>P_Personal__Againshopping</PersonalAgainshopping>
+    <PersonalApplypurchaser>P_Personal__Applypurchaser</PersonalApplypurchaser>
+    <PersonalGethistorybill>P_Personal__Gethistorybill</PersonalGethistorybill>
+    <PersonalGetmonthbill>P_Personal__Getmonthbill</PersonalGetmonthbill>
+    <PersonalGetpurchaser>P_Personal__Getpurchaser</PersonalGetpurchaser>
+    <PersonalInformation>P_Personal__Information</PersonalInformation>
+    <PersonalIsrealname>P_Personal__Isrealname</PersonalIsrealname>
+    <PersonalUpdatenikename>P_Personal__Updatenikename</PersonalUpdatenikename>
+    <PersonalcenterApplyrefund>P_Personalcenter__Applyrefund</PersonalcenterApplyrefund>
+    <PersonalcenterGetdetail>P_Personalcenter__Getdetail</PersonalcenterGetdetail>
+    <PersonalcenterGetorder>P_Personalcenter__Getorder</PersonalcenterGetorder>
+    <PersonalcenterGetorderlist>P_Personalcenter__Getorderlist</PersonalcenterGetorderlist>
+    <PersonalcenterLogistics>P_Personalcenter__Logistics</PersonalcenterLogistics>
+    <PersonalcenterReceive>P_Personalcenter__Receive</PersonalcenterReceive>
+    <PersonalcenterRefunddetail>P_Personalcenter__Refunddetail</PersonalcenterRefunddetail>
+    <PersonalcenterRefundmanage>P_Personalcenter__Refundmanage</PersonalcenterRefundmanage>
+    <PersonalcenterUppasswd>P_Personalcenter__Uppasswd</PersonalcenterUppasswd>
+    <PersonalcommitApplyrefund>P_Personalcommit__Applyrefund</PersonalcommitApplyrefund>
+    <RealnameGetauthentication>P_Realname__Getauthentication</RealnameGetauthentication>
+    <RealnameUpauthentication>P_Realname__Upauthentication</RealnameUpauthentication>
+    <UserResetPassword>P_User__ResetPassword</UserResetPassword>
+
+
+    <!-- 商户中心接口 44 -->
+    <MerchantCenterGetSetInfo>P_MerchantCenter__GetSetInfo</MerchantCenterGetSetInfo>
+    <MerchantcenterAddbrand>P_Merchantcenter__Addbrand</MerchantcenterAddbrand>
+    <MerchantcenterAddcustlist>P_Merchantcenter__Addcustlist</MerchantcenterAddcustlist>
+    <MerchantcenterAddproduct1>P_Merchantcenter__Addproduct1</MerchantcenterAddproduct1>
+    <MerchantcenterAddproduct2>P_Merchantcenter__Addproduct2</MerchantcenterAddproduct2>
+    <MerchantcenterAddproduct3>P_Merchantcenter__Addproduct3</MerchantcenterAddproduct3>
+    <MerchantcenterAddproduct4>P_Merchantcenter__Addproduct4</MerchantcenterAddproduct4>
+    <MerchantcenterAddproduct5>P_Merchantcenter__Addproduct5</MerchantcenterAddproduct5>
+    <MerchantcenterCustomerlist>P_Merchantcenter__Customerlist</MerchantcenterCustomerlist>
+    <MerchantcenterDelcustlist>P_Merchantcenter__Delcustlist</MerchantcenterDelcustlist>
+    <MerchantcenterDeletebrand>P_Merchantcenter__Deletebrand</MerchantcenterDeletebrand>
+    <MerchantcenterDelproduct>P_Merchantcenter__Delproduct</MerchantcenterDelproduct>
+    <MerchantcenterGetbrand>P_Merchantcenter__Getbrand</MerchantcenterGetbrand>
+    <MerchantcenterGetcustomer>P_Merchantcenter__Getcustomer</MerchantcenterGetcustomer>
+    <MerchantcenterGetdetail>P_Merchantcenter__Getdetail</MerchantcenterGetdetail>
+    <MerchantcenterGetdiscount>P_Merchantcenter__Getdiscount</MerchantcenterGetdiscount>
+    <MerchantcenterGetlnventory>P_Merchantcenter__Getlnventory</MerchantcenterGetlnventory>
+    <MerchantcenterGetonsale>P_Merchantcenter__Getonsale</MerchantcenterGetonsale>
+    <MerchantcenterGetorderlist>P_Merchantcenter__Getorderlist</MerchantcenterGetorderlist>
+    <MerchantcenterGetsend>P_Merchantcenter__Getsend</MerchantcenterGetsend>
+    <MerchantcenterGetwarehouse>P_Merchantcenter__Getwarehouse</MerchantcenterGetwarehouse>
+    <MerchantcenterLogistics>P_Merchantcenter__Logistics</MerchantcenterLogistics>
+    <MerchantcenterOffshelves>P_Merchantcenter__Offshelves</MerchantcenterOffshelves>
+    <MerchantcenterOnshelves>P_Merchantcenter__Onshelves</MerchantcenterOnshelves>
+    <MerchantcenterPrepare>P_Merchantcenter__Prepare</MerchantcenterPrepare>
+    <MerchantcenterSend>P_Merchantcenter__Send</MerchantcenterSend>
+    <MerchantcenterUpcustlist>P_Merchantcenter__Upcustlist</MerchantcenterUpcustlist>
+    <MerchantcenterUpdatebrand>P_Merchantcenter__Updatebrand</MerchantcenterUpdatebrand>
+    <MerchantcenterUpdateprice>P_Merchantcenter__Updateprice</MerchantcenterUpdateprice>
+    <MerchantcenterUpdiscount>P_Merchantcenter__Updiscount</MerchantcenterUpdiscount>
+    <MerchantcenterUplnventory>P_Merchantcenter__Uplnventory</MerchantcenterUplnventory>
+    <SendaddrAdd>P_Sendaddr__Add</SendaddrAdd>
+    <SendaddrDefault>P_Sendaddr__Default</SendaddrDefault>
+    <SendaddrDelete>P_Sendaddr__Delete</SendaddrDelete>
+    <SendaddrGet>P_Sendaddr__Get</SendaddrGet>
+    <SendaddrUpdate>P_Sendaddr__Update</SendaddrUpdate>
+    <ShopEditLogoBriefing>P_Shop__EditLogoBriefing</ShopEditLogoBriefing>
+    <ShopGetLogoBriefing>P_Shop__GetLogoBriefing</ShopGetLogoBriefing>
+    <ShopGetDecorate>P_Shop__Getdecorate</ShopGetDecorate>
+    <ShopUpdateDecorate>P_Shop__Updatedecorate</ShopUpdateDecorate>
+    <SellerAgreeRefund>R_Seller__AgreeRefund</SellerAgreeRefund>
+    <MerchantcenterGetsolobrand>P_Merchantcenter__Getsolobrand</MerchantcenterGetsolobrand>
+    <MerchantcenterGetspeclass>P_Merchantcenter__Getspeclass</MerchantcenterGetspeclass>
+    <MerchantcenterGetspetype>P_Merchantcenter__Getspetype</MerchantcenterGetspetype>
+
+
+    <!-- 管理后台接口 5 -->
+    <GetBasicinfo>P_Merchant__GetBasicinfo</GetBasicinfo>
+    <ApproveApply>P_Merchant__ApproveApply</ApproveApply>
+    <Admin_GetUserPasswordInfo>P_Human__GetUserPasswordInfo</Admin_GetUserPasswordInfo>
+    <GetMenu>P_Global__GetMenu</GetMenu>
+
+    <PurchaseTransfer>R_Purchase__Transfer</PurchaseTransfer>
+
+</urls>

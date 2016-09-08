@@ -5,7 +5,7 @@ from xlrd import open_workbook
 from src.utils import Config
 
 wbpath = Config().get('data', 'path')
-XLSX = ['check.xlsx', 'merchantcenter.xlsx', 'personalcenter.xlsx', 'shopping.xlsx']
+XLSX = ['zhigou.xlsx', 'merchantcenter.xlsx', 'personalcenter.xlsx', 'shopping.xlsx']
 count = 0
 for i in XLSX:
     print 'Case file is: " {0} ",'.format(i),
