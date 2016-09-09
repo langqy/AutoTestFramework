@@ -129,7 +129,7 @@ class XMLReader(object):
 
 
 if __name__ == '__main__':
-    x1 = XMLReader('zhigou1.xml')
+    x1 = XMLReader('zhigou.xml')
     # print x1.get_url('CheckCode')
     # print x1.get_type('CheckCode')
     # print x1.get_text('CheckCode')

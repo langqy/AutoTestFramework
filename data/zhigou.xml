@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<urls>
+<interfaces>
     <!-- 存放所有接口地址，数据文件Excel中的sheet名需与这里相应的节点名相同 -->
     <Base>http://192.168.7.227:8080/zhigou/</Base>
 
@@ -10,6 +10,8 @@
         <method>POST</method>
         <file>zhigou.xlsx</file>
         <sheet>CheckCode</sheet>
+        <run>1</run>
+        <encrypt>MD5</encrypt>
     </CheckCode>
     <CheckName>
         P_Merchant__CheckName
@@ -19,4 +21,4 @@
         <sheet>CheckName</sheet>
     </CheckName>
 
-</urls>
+</interfaces>

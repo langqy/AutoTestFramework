@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""此类用来生成测试文件，从数据文件中读取测试用例，从xml中读取接口配置，组织到测试文件中。
+
+一个接口是一个class，每一条测试用例是一个method。
+
+"""
 from src.utils.config import DefaultConfig, Config
 from src.utils.xml_reader import XMLReader
 from src.utils.excel_reader import ExcelReader

@@ -98,5 +98,9 @@ class UploadWindowOpenError(Error):
     pass
 
 
+class UnSupportMethod(Error):
+    """Thrown when http method not allowed."""
+    pass
+
 
 
