@@ -111,13 +111,13 @@ if __name__ == '__main__':
     #     # print driver.current_url
 
     threads = []
-    t1 = Thread(target=flush, args=('phantomjs', 10))
+    t1 = Thread(target=flush, args=('phantomjs', 20))
     threads.append(t1)
-    t2 = Thread(target=flush, args=('phantomjs', 10))
+    t2 = Thread(target=flush, args=('phantomjs', 20))
     threads.append(t2)
-    t3 = Thread(target=flush, args=('phantomjs', 10))
+    t3 = Thread(target=flush, args=('phantomjs', 20))
     threads.append(t3)
-    t4 = Thread(target=flush, args=('phantomjs', 10))
+    t4 = Thread(target=flush, args=('phantomjs', 20))
     threads.append(t4)
 
     import os
@@ -127,9 +127,14 @@ if __name__ == '__main__':
     # t_kill = Thread(target=killphantomjs, args=(60,))
     # threads.append(t_kill)
 
+    # t0 = Thread()
+    # t0.start()
+
     for t in threads:
-        t.setDaemon(False)
+        # t.setDaemon(False)
         t.start()
+        t.join()
 
 
-    # killphantomjs()
+
+    killphantomjs()
