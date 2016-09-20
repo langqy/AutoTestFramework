@@ -8,7 +8,7 @@ from src.utils.utils_exception import UnSupportMethod
 METHODS = ['GET', 'POST', 'HEAD', 'TRACE', 'PUT', 'DELETE', 'OPTIONS', 'CONNECT']
 
 
-class HTTPSender(object):
+class HTTPClient(object):
 
     def __init__(self, url, method='GET', headers=None, cookie=None):
         """
@@ -59,7 +59,7 @@ class HTTPSender(object):
 
 
 if __name__ == '__main__':
-    sender = HTTPSender('http://www.baidu.com', 'get')
+    sender = HTTPClient('http://www.baidu.com', 'get')
     res = sender.send()
     print res.status_code
     print res.content

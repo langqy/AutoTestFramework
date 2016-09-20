@@ -38,7 +38,10 @@ def clk(driver, url):
         return 0
 
 
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 def flush(browser, n):
+    ua = DesiredCapabilities().IPHONE
     for i in range(n):
         if browser.lower() == 'firefox':
             driver = webdriver.Firefox()
@@ -47,7 +50,7 @@ def flush(browser, n):
         elif browser.lower() == 'ie':
             driver = webdriver.Ie(executable_path=driver_path + 'IEDriverServer.exe')
         elif browser.lower() == 'phantomjs':
-            driver = webdriver.PhantomJS(executable_path=driver_path + 'phantomjs.exe')
+            driver = webdriver.PhantomJS(executable_path=driver_path + 'phantomjs.exe', desired_capabilities=ua)
         driver.get('http://m.baidu.com')
         driver.find_element_by_id('index-kw').send_keys(random.choice(KEYWORDS), Keys.ENTER)
         clk(driver, url='csdn')

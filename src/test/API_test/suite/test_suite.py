@@ -21,7 +21,7 @@ from test.API_test.case import test_getbestid, test_buynow, test_getproductlist,
 from test.API_test.case import test_merchantcenterdelproduct
 
 from src.utils import Config
-from src.utils import HTMLTestRunner
+from src.utils.reporter import HTMLTestRunner
 
 
 def suite1():

@@ -4,11 +4,11 @@
 一个接口是一个class，每一条测试用例是一个method。
 
 """
-from src.utils.config import DefaultConfig, Config
-from src.utils.xml_reader import XMLReader
 from src.utils.excel_reader import ExcelReader
-from src.utils.logger import Logger
 
+from src.utils.config import DefaultConfig
+from src.utils.filereader.xml_reader import XMLReader
+from src.utils.logger import Logger
 
 DATA_PATH = DefaultConfig().data_path
 
