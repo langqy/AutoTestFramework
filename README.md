@@ -15,6 +15,7 @@
     - SQLAlchemy
     - suds
     - xlrd, xlwt
+    - PyYaml
     - ... 
 
 3. 修改配置文件config/config.ini，最重要的是其中的[path]/base

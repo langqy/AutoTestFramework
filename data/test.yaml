@@ -1,0 +1,35 @@
+# Test using included Django test app
+# Demo for extract/validate of model
+---
+- config:
+    - testset: "Demonstrate use of extract after creating a person"
+- test: # create entity by POST
+    - name: "Create person"
+    - url: "/api/person/"
+    - method: &POST POST
+    - body: '{"first_name": "Test","last_name": "User","login": "testuser"}'
+    - headers: {Content-Type: application/json}
+    - expected_status: [201]
+    - extract_binds:
+        - 'id': {'jsonpath_mini': 'id'}
+- test:
+    - name: "Get person you just created and validate them"
+    - url: {'template': "/api/person/$id/"}
+    - validators:
+        - compare: {jsonpath_mini: 'id', comparator: 'str_eq', expected: {template: '$id'}}
+        - extract_test: {jsonpath_mini: 'login', test: 'exists'}
+- test:
+    - name: "Delete person you just created"
+    - url: {'template': "/api/person/$id/"}
+    - method: *POST
+    - int: 1
+    - float: 1.0
+    - boolean: true
+    - null1: ~
+    - null2: null
+    - date: 2016-12-12
+    - time: 2001-12-14t21:59:43.10-05:00
+    - str: !!str 123
+    - str2: !!str true
+    - strn: 'this is a str\nthat is right.'  # 单引号不转义，原样输出
+    - strn2: "this is a str\nthat is right."  # 双引号转义，输出成回车
