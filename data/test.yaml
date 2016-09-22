@@ -6,7 +6,7 @@
 - test: # create entity by POST
     - name: "Create person"
     - url: "/api/person/"
-    - method: &POST POST
+    - method: &POST "POST"
     - body: '{"first_name": "Test","last_name": "User","login": "testuser"}'
     - headers: {Content-Type: application/json}
     - expected_status: [201]
@@ -33,3 +33,7 @@
     - str2: !!str true
     - strn: 'this is a str\nthat is right.'  # 单引号不转义，原样输出
     - strn2: "this is a str\nthat is right."  # 双引号转义，输出成回车
+
+---
+aa: 1
+bb: 2
